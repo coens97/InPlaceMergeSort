@@ -4,7 +4,7 @@ func sort(linked *Node) {
 	mergesort(linked,linked.value)
 }
 
-func mergesort(start *Node,length int){
+func mergesort(start *Node,length int) *Node{
 	if length > 1{
 		var leftLength, rightLength int
 		leftStart := start
@@ -12,12 +12,7 @@ func mergesort(start *Node,length int){
 		leftLength = length / 2
 		rightLength = length - leftLength
 		// sort both sides
-		mergesort(leftStart, leftLength)
-		// get beginning of right list
-		rightStart := leftStart
-		for i := 0; i < leftLength; i++ {
-			rightStart = rightStart.next
-		}
+		rightStart := mergesort(leftStart, leftLength)		
 		mergesort(rightStart, rightLength)
 		// merge
 		for  0!=leftLength&&0!=rightLength{
@@ -30,5 +25,13 @@ func mergesort(start *Node,length int){
 				rightLength--
 			}
 		}
+		//return end of linkedlist
+		leng := leftLength + rightLength
+		for leng>0{
+			leftStart = leftStart.next
+			leng--
+		}
+		return leftStart
 	}
+	return start.next
 }
