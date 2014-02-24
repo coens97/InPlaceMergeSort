@@ -13,7 +13,7 @@ If the first value of the right list is smaller then change the pointer from the
 
 ![](http://i.imgur.com/AYOAiHz.png) 
 
-When the left or right list ks empty the part of the list is sorted
+When the left or right list is empty the part of the list is sorted
 How to run?
 ---
  - Install The Go Programming Language
